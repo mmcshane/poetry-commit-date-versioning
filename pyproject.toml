@@ -1,0 +1,31 @@
+[tool.poetry]
+name = "poetry-commit-date-versioning"
+version = "0.1.0"
+description = "A Poetry plugin that observes the current git commit to build a date-based version number"
+authors = ["Matt McShane <matt@mattmcshane.com>"]
+readme = "README.md"
+packages = [{include = "dateversioning"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+poetry = "^1.7"
+dulwich = "^0.21.7"
+
+[tool.poetry.group.dev-pylsp]
+optional = true
+
+[tool.poetry.group.dev-pylsp.dependencies]
+python-lsp-server = "^1.9.0"
+pylsp-mypy = "^0.6.8"
+python-lsp-ruff = "^2.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.plugins."poetry.plugin"]
+dateversioning = "dateversioning:Plugin"
+
+[tool.poetry-dateversiong]
+enable = false
+
