@@ -86,9 +86,10 @@ class Plugin(PoetryPlugin):
 
         gitroot = _find_git_root()
         if not gitroot:
-            raise RuntimeError(
+            io.write_error_line(
                 "poetry-commit-date-versioning plugin is enabled but this is not a git repository"
             )
+            return
         with dulwich.porcelain.open_repo_closing(str(gitroot)) as repo:
             poetry.package.version = version_from_repo(repo, config.version_style)
 
