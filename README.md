@@ -14,6 +14,21 @@ To use:
 enable = true
 ```
 
+You can optionally indicate whether the plugin should generate zero-padded
+version segments or pep440 canonicalized segments. With padding, version number
+segments are left-padded with zeros to extend to the maximum possible width of
+the field. For example a version number including the month of January 1980
+would be padded to start with `1980.01`. With canonicalization that same version
+number would be `1980.1`. By default, pep440 canonicaization is used but padding
+can be enabled with the `version-style` configuration field. This field accepts
+one of two values: `"pep440-canonicalized"` or `"zero-padded"`
+
+```.toml
+[tool.poetry-commit-date-versioning]
+enable = true
+version-style = "zero-padded"
+```
+
 As the version number is not written into source code files anywhere, we
 suggest using `importlib` to determine your module's version number.
 
