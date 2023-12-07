@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "poetry-commit-date-versioning"
-version = "0.2.0"
+version = "0.3.0"
 description = "A Poetry plugin that observes the current git commit to build a date-based version number"
 authors = ["Matt McShane <matt@mattmcshane.com>"]
 readme = "README.md"
